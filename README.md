@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Running the Book Management Web Application Locally
+This project is a simple web application built with Next.js, React, TypeScript, and Tailwind CSS to manage a list of books.
 
-## Getting Started
+Prerequisites
+Before running the project, ensure you have the following installed on your machine:
 
-First, run the development server:
+Node.js (v14.x or later)
+npm (v7.x or later) or yarn (v1.22.x or later)
+Git
 
-```bash
+Steps to Run the Project
+
+1. Clone the Repository:
+
+git clone https://github.com/your-username/your-project.git
+
+2. Navigate to the Project Directory:
+
+cd your-project
+
+3. Install Dependencies:
+
+If you're using npm:
+npm install
+
+If you're using yarn:
+yarn
+
+4. Start the Development Server:
 npm run dev
-# or
+
+Or with yarn:
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open the Application in Your Browser:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Once the development server starts, you can open the application in your web browser:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+http://localhost:3000
 
-## Learn More
+6. Running Tests
+To run any available unit tests for the components:
+npm test
 
-To learn more about Next.js, take a look at the following resources:
+or with yarn:
+yarn test
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Additional Notes
+This application fetches mock book data from a JSON file to simulate a backend API.
+You can add new books using the form provided on the home page.
+The book list supports sorting by title and author.
+Pagination is implemented to navigate through the book list.
