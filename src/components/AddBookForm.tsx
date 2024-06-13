@@ -1,27 +1,42 @@
-import { useState } from 'react';
-import { Book } from '../types/Book';
+import { useState } from "react";
+import { Book } from "../types/Book";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface AddBookFormProps {
   addBook: (book: Book) => void;
 }
 
 const AddBookForm: React.FC<AddBookFormProps> = ({ addBook }) => {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (title && author) {
-      addBook({ id: Date.now(), title, author });
-      setTitle('');
-      setAuthor('');
+    if (!title.trim() || !author.trim()) {
+      toast.error("Please provide both title and author.", {
+        position: "top-center",
+      });
+      return;
     }
+    addBook({ id: Date.now(), title, author });
+    setTitle("");
+    setAuthor("");
+    toast.success("Book added successfully!", {
+      position: "top-center",
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-6 bg-white p-6 rounded-lg shadow-md">
+    <form
+      onSubmit={handleSubmit}
+      className="mb-6 bg-white p-6 rounded-lg shadow-md"
+    >
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
+        <label
+          className="block text-gray-700 text-sm font-bold mb-2"
+          htmlFor="title"
+        >
           Title
         </label>
         <input
@@ -34,7 +49,10 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ addBook }) => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="author">
+        <label
+          className="block text-gray-700 text-sm font-bold mb-2"
+          htmlFor="author"
+        >
           Author
         </label>
         <input
