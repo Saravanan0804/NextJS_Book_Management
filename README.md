@@ -12,38 +12,38 @@ Steps to Run the Project
 
 1. Clone the Repository:
 
-git clone https://github.com/your-username/your-project.git
+      git clone https://github.com/Saravanan0804/NextJS_Book_Management.git
 
 2. Navigate to the Project Directory:
 
-cd your-project
+      cd NextJS_Book_Management
 
 3. Install Dependencies:
 
-If you're using npm:
-npm install
+      If you're using npm:
+        npm install
 
-If you're using yarn:
-yarn
+      If you're using yarn:
+        yarn
 
 4. Start the Development Server:
-npm run dev
+      npm run dev
 
-Or with yarn:
-yarn dev
+   Or with yarn:
+      yarn dev
 
 5. Open the Application in Your Browser:
 
-Once the development server starts, you can open the application in your web browser:
+    Once the development server starts, you can open the application in your web browser:
 
-http://localhost:3000
+    http://localhost:3000
 
 6. Running Tests
-To run any available unit tests for the components:
-npm test
+    To run any available unit tests for the components:
+    npm test
 
-or with yarn:
-yarn test
+    or with yarn:
+    yarn test
 
 Additional Notes
 This application fetches mock book data from a JSON file to simulate a backend API.
