@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-import BookList from '../components/BookList';
-import AddBookForm from '../components/AddBookForm';
-import { Book } from '../types/Book';
-import { fetchBooks } from '../lib/fetchBooks';
+import { useEffect, useState } from "react";
+import BookList from "../components/BookList";
+import AddBookForm from "../components/AddBookForm";
+import { Book } from "../types/Book";
+import { fetchBooks } from "../lib/fetchBooks";
 
 const Home: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
         const data = await fetchBooks();
         setBooks(data);
       } catch (error) {
-        console.error('Error fetching books:', error);
+        console.error("Error fetching books:", error);
       } finally {
         setLoading(false);
       }

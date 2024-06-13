@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Book } from '../types/Book';
+import { useState } from "react";
+import { Book } from "../types/Book";
 
 interface BookListProps {
   books: Book[];
@@ -8,23 +8,27 @@ interface BookListProps {
 const BookList: React.FC<BookListProps> = ({ books }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [booksPerPage] = useState<number>(5);
-  const [sortBy, setSortBy] = useState<string>('title'); 
-  const [sortOrder, setSortOrder] = useState<string>('asc');
+  const [sortBy, setSortBy] = useState<string>("title");
+  const [sortOrder, setSortOrder] = useState<string>("asc");
 
   const handleSort = (column: string) => {
     if (sortBy === column) {
-      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
     } else {
       setSortBy(column);
-      setSortOrder('asc');
+      setSortOrder("asc");
     }
   };
 
   const sortedBooks = [...books].sort((a, b) => {
-    if (sortBy === 'title') {
-      return sortOrder === 'asc' ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title);
-    } else if (sortBy === 'author') {
-      return sortOrder === 'asc' ? a.author.localeCompare(b.author) : b.author.localeCompare(a.author);
+    if (sortBy === "title") {
+      return sortOrder === "asc"
+        ? a.title.localeCompare(b.title)
+        : b.title.localeCompare(a.title);
+    } else if (sortBy === "author") {
+      return sortOrder === "asc"
+        ? a.author.localeCompare(b.author)
+        : b.author.localeCompare(a.author);
     }
     return 0;
   });
@@ -50,24 +54,26 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
             <tr className="bg-gray-200">
               <th
                 className="px-4 py-2 cursor-pointer border-b border-gray-300"
-                onClick={() => handleSort('title')}
+                onClick={() => handleSort("title")}
               >
                 Title
-                {sortBy === 'title' && (sortOrder === 'asc' ? ' ▲' : ' ▼')}
+                {sortBy === "title" && (sortOrder === "asc" ? " ▲" : " ▼")}
               </th>
               <th
                 className="px-4 py-2 cursor-pointer border-b border-gray-300"
-                onClick={() => handleSort('author')}
+                onClick={() => handleSort("author")}
               >
                 Author
-                {sortBy === 'author' && (sortOrder === 'asc' ? ' ▲' : ' ▼')}
+                {sortBy === "author" && (sortOrder === "asc" ? " ▲" : " ▼")}
               </th>
             </tr>
           </thead>
           <tbody>
             {currentBooks.map((book) => (
               <tr key={book.id} className="border-b">
-                <td className="px-4 py-2 border-r border-gray-300">{book.title}</td>
+                <td className="px-4 py-2 border-r border-gray-300">
+                  {book.title}
+                </td>
                 <td className="px-4 py-2">{book.author}</td>
               </tr>
             ))}
@@ -88,7 +94,9 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
             key={i}
             onClick={() => paginate(i + 1)}
             className={`px-3 py-1 rounded ${
-              currentPage === i + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'
+              currentPage === i + 1
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-gray-800"
             }`}
           >
             {i + 1}
